@@ -1,4 +1,25 @@
 @extends('front-end.layout.master')
+@section('css')
+<style>
+    div.scrollNar {
+        
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+    div.scrollNar div.col-4{
+        display: inline-block;
+        
+        text-align: center;
+        
+        text-decoration: none;
+    }
+
+    div.scrollNar div.col-4:hover {
+        
+    }
+</style>
+@stop
 @section('content')
 
 <section class="jumbotron py-0 mb-0 m" style="background-color: #7868E6;height: 700px; margin-top:60px; background-image:url('/img/banner.svg') ; background-size: cover;background-repeat: no-repeat;background-position:top;">
@@ -25,12 +46,14 @@
         </div>
     </div>
 </section>
-<section class="jadwal" style="margin-top:-10px;background-color: #7868E6;background-image: url('/img/Vector 1.svg');background-size:cover; background-repeat:no-repeat;background-position:top left;">
+<img src="{{asset('img/Vector 1.svg')}}" alt="" class="w-100" style="z-index:-1;margin-top:-10px;object-fit: cover; position: absolute;">
+<section class="jadwal" style=" ">
     <div class="container-xl" >
-        <div class="row py-5">
-            <b><h1 style="font-size: 48px;font-weight:1000;color: white;">Jadwal Terbaru</h1></b>
+        <div class="row py-5" style="z-index:10000;">
+            <b><h1 style=" font-size: 48px;font-weight:1000;color: white;">Jadwal Webinar</h1></b>
         </div>
         <div class="row">
+            
                 <div class="col-8">
                     <div class="card rounded-lg overflow-hidden" >
                         <img src="{{asset('img/banner.svg')}}" class="card-img-top" alt="...">
@@ -43,7 +66,7 @@
                     </div>
                 </div>
                 <div class="col-4 pl-0">
-                    <div class="col-12 mb-3">
+                    <div class="col-12 mb-3 pr-0">
                         <div class="card rounded-lg overflow-hidden" >
                             <img src="{{asset('img/banner.svg')}}" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -53,7 +76,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 mt-3">
+                    <div class="col-12 mt-3 pr-0">
                         <div class="card rounded-lg overflow-hidden" >
                             <img src="{{asset('img/banner.svg')}}" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -67,7 +90,7 @@
         </div>
     </div>
 </section>
-<section class="jadwal-webinar" style="background-color: #E4FBFF">
+<section class="jadwal-webinar" style="">
     <div class="container-xl" >
         <div class="row py-5">
             <b><h1 style="font-size: 48px;font-weight:1000;color: #7868E6;">Jadwal Webinar</h1></b>
@@ -140,20 +163,8 @@
                     </div>
                 </div>
         </div>
-        <div class="row">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                  <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                  </li>
-                </ul>
-            </nav>
+        <div class="row text-center">
+            <a href="" class="text-capitalize" style="text-decoration: none; color: #7868E6;">Lihat lebih banyak >></a>
         </div>
     </div>
 </section>
@@ -162,14 +173,36 @@
         <div class="row text-center">
             <b><h1 style="font-size: 48px;font-weight:1000;color: #7868E6;">Para Narasumber</h1></b>
         </div>
-        <div class="row">
+        <div class="row scrollNar" style="margin-top:100px">
             <div class="col-4">
-                <div class="d-flex">
-                    <img src="{{asset('img/banner.svg')}}" alt="" class="img-fluid rounded-circle">
+                <div class="d-block">
+                    <img src="{{asset('img/banner.svg')}}" style="object-fit: cover" width="200px" height="200px" alt="" class=" rounded-circle">
                     <h3>Syarif</h3>
                     <p class="text-secondary"></p>
                 </div>
             </div>
+            <div class="col-4">
+                <div class="d-block">
+                    <img src="{{asset('img/banner.svg')}}" style="object-fit: cover" width="200px" height="200px" alt="" class=" rounded-circle">
+                    <h3>Syarif</h3>
+                    <p class="text-secondary"></p>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="d-block">
+                    <img src="{{asset('img/banner.svg')}}" style="object-fit: cover" width="200px" height="200px" alt="" class=" rounded-circle">
+                    <h3>Syarif</h3>
+                    <p class="text-secondary"></p>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="d-block">
+                    <img src="{{asset('img/banner.svg')}}" style="object-fit: cover" width="200px" height="200px" alt="" class=" rounded-circle">
+                    <h3>Syarif</h3>
+                    <p class="text-secondary"></p>
+                </div>
+            </div>
+            
         </div>
     </div>
 </section>

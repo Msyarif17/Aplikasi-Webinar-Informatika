@@ -5,19 +5,12 @@
     <section class="content">
         <div class="row">
             <div class="col-12">
-                @if ($message = Session::get('success'))
-                <div class="mt-4 alert alert-success">
-                    <p>{{ $message }}</p>
-                </div>
-                @endif
-                <div class="card mt-3">
+                <div class="card mt-4">
                     <div class="card-header">
-                        <h3 class="card-title">Admin</h3>
+                        <h3 class="card-title">Jadwal Webinar</h3>
                         <div class="float-right">
-                            <a href="{{route('admin.manage-admin.create')}}" class="btn rounded-sm btn-success btn-flat btn-sm"
-                               title="Tambah"><i class="fa fa-user" aria-hidden="true"></i> Tambah Admin</a>
-                            <a href="{{route('admin.manage-admin.create')}}" class="btn rounded-sm btn-primary btn-flat btn-sm"
-                               title="Tambah"><i class="fa fa-user-tag" aria-hidden="true"></i> Tambah Peran</a>
+                            <a href="" class="btn btn-success btn-flat btn-sm"
+                               title="Tambah">Tambah</a>
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -27,9 +20,9 @@
                             <table id="data" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Nama</th>
-                                    <th>Peran</th>
-                                    <th>Perizinan</th>
+                                    <th>Judul Webinar</th>
+                                    <th>Narasumber</th>
+                                    <th>Tanggal</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -54,12 +47,16 @@
                 processing: true,
                 searchDelay: 1000,
                 ajax: {
-                    url: '{{route('admin.manage-admin.index')}}',
+                    url: '{{route('admin.webinar')}}',
                 },
                 columns: [
-                    {data: 'name'},
-                    {data: 'role'},
-                    {data: 'permission'},
+                    {data: 'judul'},
+                    {
+                        data: 'narasumber_name',name: 'narasumber.name',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {data: 'jadwal'},
                     {
                         data: 'status', name: 'deleted_at', render: function (datum, type, row) {
                             if (row.status == 'Active') {

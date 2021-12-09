@@ -1,62 +1,28 @@
 <?php
     
-namespace App\Http\Controllers\BackEnd;
+namespace App\Http\Controllers;
     
-
-use App\Models\User;
-use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-
-use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Yajra\DataTables\DataTables;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
+use DB;
+use Hash;
+use Illuminate\Support\Arr;
     
-class ManageUserController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Datatables $datatables, Request $request)
+    public function index(Request $request)
     {
-        if ($request->ajax()) {
-            return $datatables->of(User::query()->role('Admin'))
-                ->addColumn('name', function (User $User) {
-                    return $User->name;
-                })
-                ->addColumn('role', function (User $User) {
-                    return $User->getRoleNames();
-                })
-                ->addColumn('permission', function (User $User) {
-                    return $User->getPermissionNames();
-                })
-                ->addColumn('action', function (User $User) {
-
-                    return \view('back-end.user.button_action', compact('User'));
-                })
-                ->addColumn('status', function (User $User) {
-                    if ($User->deleted_at) {
-                        return 'Inactive';
-                    } else {
-                        return 'Active';
-                    }
-                })
-                ->rawColumns(['status', 'action'])
-                ->make(true);
-        } else {
-            return view('back-end.user.index');
-
-        }
+        $data = User::orderBy('id','DESC')->paginate(5);
+        return view('back-end.user.index',compact('data'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
     }
-    // public function index(Request $request)
-    // {
-    //     $data = User::orderBy('id','DESC')->paginate(5);
-    //     return view('back-end.user.index',compact('data'))
-    //         ->with('i', ($request->input('page', 1) - 1) * 5);
-    // }
     
     /**
      * Show the form for creating a new resource.
@@ -90,7 +56,7 @@ class ManageUserController extends Controller
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
     
-        return redirect()->route('admin.manage-admin.index')
+        return redirect()->route('back-end.user.index')
                         ->with('success','User created successfully');
     }
     
@@ -150,7 +116,7 @@ class ManageUserController extends Controller
     
         $user->assignRole($request->input('roles'));
     
-        return redirect()->route('admin.manage-admin.index')
+        return redirect()->route('back-end.user.index')
                         ->with('success','User updated successfully');
     }
     
@@ -163,7 +129,7 @@ class ManageUserController extends Controller
     public function destroy($id)
     {
         User::find($id)->delete();
-        return redirect()->route('admin.manage-admin.index')
+        return redirect()->route('back-end.user.index')
                         ->with('success','User deleted successfully');
     }
 }

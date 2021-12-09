@@ -10,6 +10,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -51827,7 +51828,9 @@ a.text-muted:hover {
   border-color: #dee2e6;
   color: #6c757d;
 }
-
+.bg-purple {
+  background-color: #7868E6;
+}
 .dark-mode .accent-red [class*="sidebar-dark-"] .sidebar a:not(.dropdown-item):not(.btn-app):not(.nav-link):not(.brand-link) {
   color: #c2c7d0;
 }

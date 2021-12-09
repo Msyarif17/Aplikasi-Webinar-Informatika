@@ -23,6 +23,7 @@ class CreateJadwalsTable extends Migration
             $table->string('thumbnail');
             $table->timestamp('jadwal');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

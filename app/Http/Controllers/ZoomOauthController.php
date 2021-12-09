@@ -12,7 +12,7 @@ class ZoomOauthController extends Controller
 {
     public function generateLinkZoom(Request $request){
         
-        $user = Zoom::user()->find('m.syarifsetiadi@gmail.com');
+        $user = Zoom::user()->find('webinarinformatikaofficial@gmail.com');
         
         $meeting = Zoom::meeting()->make([
             'topic' => 'New meeting',
@@ -33,6 +33,7 @@ class ZoomOauthController extends Controller
             'enforce_login' => false,
             'waiting_room' => false,
         ]);
+        // dd($user->meetings()->save($meeting));
         $user->meetings()->save($meeting);
         
         return $meeting->join_url;
