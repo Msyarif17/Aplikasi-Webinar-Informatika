@@ -25,7 +25,6 @@ class Jadwal extends Model
 	{
 		return $this->belongsTo(Narasumber::class);
 	}
-<<<<<<< HEAD
     public function moderator()
 	{
 		return $this->belongsTo(Moderator::class);
@@ -34,6 +33,4 @@ class Jadwal extends Model
 	{
 		return $this->hasMany(RegistrasiPeserta::class,'jadwal_id');
 	}
-=======
->>>>>>> e000fd2ed1736a19122b745448badf6a4ab70653
 }

@@ -66,16 +66,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-<<<<<<< HEAD
         $user = User::create([
-=======
-        return User::create([
->>>>>>> e000fd2ed1736a19122b745448badf6a4ab70653
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-<<<<<<< HEAD
         if(!(Role::where('name','Peserta')->get()->count() == 1) ){
             $role = Role::create(['name'=>'Peserta']);
             $permissions = Permission::pluck('id','id')->all();
@@ -89,7 +84,5 @@ class RegisterController extends Controller
             $user->assignRole('Peserta');
         }
         return $user;
-=======
->>>>>>> e000fd2ed1736a19122b745448badf6a4ab70653
     }
 }
