@@ -3,7 +3,7 @@
 <section class="content pt-4">
     <div class="row">
         <div class="col-md-4 col-sm-12 pb-4 box-size-1">
-			<a href="/dashboard/pengunjung">
+			<a href="#">
 				<div class="card bg-warning text-light border-0  overflow-hidden shadow">
 					<div class="card-header border-0 bg-transparent text-light text-capitalize">
 						<h4 class="">Pengunjung Webiste</h4>
@@ -22,7 +22,7 @@
 			</a>
 		</div>
         <div class="col-md-4 col-sm-12 pb-4 box-size-1">
-			<a href="/dashboard/pengunjung">
+			<a href="{{route('admin.manage-jadwal.index')}}">
 				<div class="card bg-primary text-light border-0  overflow-hidden shadow">
 					<div class="card-header border-0 bg-transparent text-light text-capitalize">
 						<h4 class="">Jumlah Webinar</h4>
@@ -42,7 +42,7 @@
 		</div>
 		
 		<div class="col-md-4 col-sm-12 pb-4 box-size-1">
-			<a href="/dashboard/pengunjung">
+			<a href="#">
 				<div class="card bg-secondary text-light border-0  overflow-hidden shadow">
 					<div class="card-header border-0 bg-transparent text-light text-capitalize">
 						<h4 class="">Sertifikat</h4>
@@ -61,7 +61,7 @@
 			</a>
 		</div>
         <div class="col-md-4 col-sm-12 pb-4 box-size-1">
-			<a href="/dashboard/pengunjung">
+			<a href="{{route('admin.manage-peserta.index')}}">
 				<div class="card bg-dark text-light border-0  overflow-hidden shadow">
 					<div class="card-header border-0 bg-transparent text-light text-capitalize">
 						<h4 class="">Peserta</h4>
@@ -81,7 +81,7 @@
 		</div>
         
         <div class="col-md-4 col-sm-12 pb-4 box-size-1">
-			<a href="/dashboard/pengunjung">
+			<a href="{{route('admin.manage-narasumber.index')}}">
 				<div class="card bg-success text-light border-0  overflow-hidden shadow">
 					<div class="card-header border-0 bg-transparent text-light text-capitalize">
 						<h4 class="">Narasumber</h4>
@@ -100,7 +100,7 @@
 			</a>
 		</div>
         <div class="col-md-4 col-sm-12 pb-4 box-size-1">
-			<a href="/dashboard/pengunjung">
+			<a href="{{route('admin.manage-admin.index')}}">
 				<div class="card text-light border-0  overflow-hidden shadow" style="background-color: #7868E6">
 					<div class="card-header border-0 bg-transparent text-light text-capitalize">
 						<h4 class="">Admin</h4>
