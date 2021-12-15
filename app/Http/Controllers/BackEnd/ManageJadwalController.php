@@ -30,7 +30,6 @@ class ManageJadwalController extends Controller
                     return $Jadwal->jadwal;
                 })
                 ->addColumn('action', function (Jadwal $Jadwal) {
-
                     return \view('back-end.webinar.button_action', compact('Jadwal'));
                 })
                 ->addColumn('status', function (Jadwal $Jadwal) {

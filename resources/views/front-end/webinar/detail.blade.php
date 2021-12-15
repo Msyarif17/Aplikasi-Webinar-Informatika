@@ -4,14 +4,20 @@
     <div class="container">
         <div class="row">
             <div class="col">
+                @if ($message = Session::get('failed'))
+                    <div class="my-4 alert alert-danger">
+                        <p>{{ $message }}</p>
+                    </div>
                 <div class="card">
                     <div class="card-header">
                         <b><h5 style="font-size: 24px;font-weight:1000;color: #7868E6;">{{$webinar->jadwal}}</h5></b>
                         <b><h1 style="font-size: 48px;font-weight:1000;color: #7868E6;">{{$webinar->judul}}</h1></b>
                         
                     </div>
+                    
+                    @endif
                     <div class="card-body">
-                        <img src="{{asset('img/banner.svg')}}" class="card-img-top pb-4" alt="...">
+                        <img src="{{asset('storage'.$webinar->thumbnail)}}" class="card-img-top pb-4" alt="...">
                         <div class="row">
             
                             <div class="col-8">

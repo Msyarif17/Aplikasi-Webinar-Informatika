@@ -17,11 +17,17 @@ use App\Http\Controllers\ZoomOauthController;
 */ 
 Route::get('/', [App\Http\Controllers\FrontEnd\IndexController::class, 'index'])->name('index');
 Route::get('/webinar-if', [App\Http\Controllers\FrontEnd\IndexController::class, 'webinar'])->name('webinar');
-Route::get('/webinar-if/{id}', [App\Http\Controllers\FrontEnd\IndexController::class, 'detail'])->name('webinar.detail');
-Route::get('/webinar-if/{id}/daftar',[App\Http\Controllers\FrontEnd\IndexController::class, 'daftar'])->name('reg');
-Route::get('/absen/{id}',[App\Http\Controllers\FrontEnd\IndexController::class, 'absen'])->name('absen');
-// Route::get('/cek',[App\Http\Controllers\SertifikatController::class, 'cek'])->name('cek');
+
+
+
+Route::get('/cek/{token}',[App\Http\Controllers\FrontEnd\IndexController::class, 'cek'])->name('cek');
 Auth::routes();
+Route::middleware(['auth'])->group(function (){
+    Route::get('/webinar-if/{id}', [App\Http\Controllers\FrontEnd\IndexController::class, 'detail'])->name('webinar.detail');
+    Route::get('/webinar-if/{id}/daftar',[App\Http\Controllers\FrontEnd\IndexController::class, 'daftar'])->name('reg');
+    Route::get('/absen/{id}',[App\Http\Controllers\FrontEnd\AbsensiController::class, 'index'])->name('absen');
+    Route::post('absen/{id}/send',[App\Http\Controllers\FrontEnd\AbsensiController::class, 'absen'])->name('absen.create');
+});
 Route::middleware(['auth','role:Admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [App\Http\Controllers\BackEnd\IndexController::class, 'index']);
     
@@ -52,7 +58,6 @@ Route::middleware(['auth','role:Admin'])->prefix('admin')->name('admin.')->group
     Route::get('/sendMail',[App\Http\Controllers\WebinarMailController::class, 'sendMailSertif']);
     Route::get('/create',[App\Http\Controllers\WebinarMailController::class, 'proses']);
     // Route::get('/cek',[App\Http\Controllers\SertifikatController::class, 'cek'])->name('cek');
-    Route::get('/', [App\Http\Controllers\BackEnd\IndexController::class, 'index']);
     Route::get('/', [App\Http\Controllers\BackEnd\IndexController::class, 'index']);
 });
 

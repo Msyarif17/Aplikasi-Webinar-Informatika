@@ -10,8 +10,8 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        {!! Form::open(['route' => ['admin.category-job-vacancies.update', $categoryJobVacancy->id], 'method' => 'put', 'autocomplete' => 'false','enctype'=>'multipart/form-data']) !!}
-                        @include('admin.category-job-vacancy._form')
+                        {!! Form::open(['route' => ['admin.manage-narasumber.update', $narasumber->id], 'method' => 'put', 'autocomplete' => 'false','enctype'=>'multipart/form-data']) !!}
+                        @include('back-end.narasumber._form')
                         {!! Form::close() !!}
                     </div>
                     <!-- /.card-body -->

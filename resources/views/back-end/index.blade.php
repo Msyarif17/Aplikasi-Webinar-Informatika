@@ -10,7 +10,7 @@
 					</div>
 					<div class="card-body">
 						<div class="text-left text-light">
-							<h1>0</h1>
+							<h1>{{$pengunjung->count}}</h1>
 						</div>
 						<div class="text-right" style="margin-top: -20px;">
 							
@@ -29,7 +29,7 @@
 					</div>
 					<div class="card-body">
 						<div class="text-left text-light">
-							<h1>0</h1>
+							<h1>{{$webinar}}</h1>
 						</div>
 						<div class="text-right" style="margin-top: -20px;">
 							
@@ -49,7 +49,7 @@
 					</div>
 					<div class="card-body">
 						<div class="text-left text-light">
-							<h1>0</h1>
+							<h1>{{$sertif}}</h1>
 						</div>
 						<div class="text-right" style="margin-top: -20px;">
 							
@@ -68,7 +68,7 @@
 					</div>
 					<div class="card-body">
 						<div class="text-left text-light">
-							<h1>0</h1>
+							<h1>{{$peserta}}</h1>
 						</div>
 						<div class="text-right" style="margin-top: -20px;">
 							
@@ -88,7 +88,7 @@
 					</div>
 					<div class="card-body">
 						<div class="text-left text-light">
-							<h1>0</h1>
+							<h1>{{$narasumber}}</h1>
 						</div>
 						<div class="text-right" style="margin-top: -20px;">
 							

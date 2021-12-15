@@ -1,6 +1,6 @@
 @component('mail::message')
 
-![](data:image/png;base64,{{base64_encode(file_get_contents(public_path('storage'.str_replace('/','\\',$detail['thumbnail']))))}})
+{{-- ![](data:image/png;base64,{{base64_encode(file_get_contents(public_path('storage'.str_replace('/','\\',$detail['thumbnail']))))}}) --}}
 Hello {{$detail['name']}}
 Nama anda telah terdaftar dalam peserta webinar {{$detail['title']}}
 @component('mail::button', ['url' => $detail['url'], 'color' => 'success'])

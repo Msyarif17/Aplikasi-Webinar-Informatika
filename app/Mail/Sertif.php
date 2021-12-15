@@ -35,6 +35,6 @@ class Sertif extends Mailable
     {
         return $this->subject('webinarinformarikaofficial@gmail.com')
                     ->attach('storage/sertif/' . $this->token. '.pdf')
-                    ->markdown('mail.webinar-mail');
+                    ->view('mail.webinar-mail',['detail' => $this->details]);
     }
 }

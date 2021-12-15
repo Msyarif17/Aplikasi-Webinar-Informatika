@@ -16,8 +16,7 @@
                         <div class="float-right">
                             <a href="{{route('admin.manage-admin.create')}}" class="btn rounded-sm btn-success btn-flat btn-sm"
                                title="Tambah"><i class="fa fa-user" aria-hidden="true"></i> Tambah Admin</a>
-                            <a href="{{route('admin.manage-admin.create')}}" class="btn rounded-sm btn-primary btn-flat btn-sm"
-                               title="Tambah"><i class="fa fa-user-tag" aria-hidden="true"></i> Tambah Peran</a>
+                            
                         </div>
                     </div>
                     <!-- /.card-header -->

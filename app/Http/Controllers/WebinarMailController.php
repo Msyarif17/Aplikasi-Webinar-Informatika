@@ -37,27 +37,28 @@ class WebinarMailController extends Controller
         Mail::to($email)->send(new WebinarMail($details,$this->tokenx));
         return 1;
     }
-    public function sendMailSertif($name, $email, $judul,$token)
+    public function sendMailSertif($user, $webinar,$token)
     {
         $details = [
-            'title' => $judul,
-            'name' => $name,
+            'title' => $webinar->judul,
+            'pelaksanaan' => $webinar->jadwal,
+            'name' => $user->name,
         ];
         $this->tokenx = $token;
-        $this->proses($name);
-        Mail::to($email)->send(new Sertif($details , $this->tokenx));
+        $this->proses($user->name,$webinar->judul,$token);
+        Mail::to($user->email)->send(new Sertif($details , $this->tokenx));
        
         return 1;
     }
-    public function proses($name){
+    public function proses($name,$judul,$token){
         
         $nama = $name;
-        $webinar = 'Literasi Digital';
+        $webinar = $judul;
        
         $writer = new PngWriter();
 
         // Create QR code
-        $qrCode = QrCode::create(route('cek')."/".$this->tokenx)
+        $qrCode = QrCode::create(route('cek',$token))
             ->setEncoding(new Encoding('UTF-8'))
             ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
             ->setSize(300)

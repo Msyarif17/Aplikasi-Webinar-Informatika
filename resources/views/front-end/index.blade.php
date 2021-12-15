@@ -164,7 +164,7 @@
                 </div>
         </div>
         <div class="row text-center">
-            <a href="" class="text-capitalize" style="text-decoration: none; color: #7868E6;">Lihat lebih banyak >></a>
+            <a href="{{route('webinar')}}" class="text-capitalize" style="text-decoration: none; color: #7868E6;">Lihat lebih banyak >></a>
         </div>
     </div>
 </section>
