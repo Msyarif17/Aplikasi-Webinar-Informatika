@@ -8,14 +8,14 @@
                     <div class="my-4 alert alert-danger">
                         <p>{{ $message }}</p>
                     </div>
+                @endif
                 <div class="card">
                     <div class="card-header">
-                        <b><h5 style="font-size: 24px;font-weight:1000;color: #7868E6;">{{$webinar->jadwal}}</h5></b>
+                        <b><h5 style="font-size: 18px;font-weight:1000;color: #7868E6;">{{Carbon\Carbon::parse($webinar->jadwal)->format('l, d F Y, H:m A');}}</h5></b>
                         <b><h1 style="font-size: 48px;font-weight:1000;color: #7868E6;">{{$webinar->judul}}</h1></b>
                         
                     </div>
                     
-                    @endif
                     <div class="card-body">
                         <img src="{{asset('storage'.$webinar->thumbnail)}}" class="card-img-top pb-4" alt="...">
                         <div class="row">
@@ -46,7 +46,7 @@
                                     <div class="card " >
                                         
                                         <div class="card-body">
-                                            <a name="" id="" class="btn btn-primary" href="{{route('reg',$webinar->id)}}" role="button">Daftar</a>
+                                            <a name="" id="" class="btn btn-primary w-100 text-center" href="{{route('reg',$webinar->id)}}" role="button">Daftar</a>
                                         </div>
                                     </div>
                                 </div>

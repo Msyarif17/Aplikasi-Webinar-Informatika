@@ -14,7 +14,7 @@
                     <a class="nav-link {{(Request::is('webinar-if*') ? 'active':'')}}" href="{{route('webinar')}}">Webinar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{(Request::is('') ? 'active':'')}}" href="#">Gallery</a>
+                    <a class="nav-link {{(Request::is('cek') ? 'active':'')}}" href="#">Gallery</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{(Request::is('') ? 'active':'')}}" href="#">About</a>

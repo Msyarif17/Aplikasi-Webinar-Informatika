@@ -10,6 +10,7 @@ class Narasumber extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'image',
         'name',
         'institusi',
         'motivation',

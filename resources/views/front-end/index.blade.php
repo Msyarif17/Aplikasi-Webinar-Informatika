@@ -95,73 +95,29 @@
         <div class="row py-5">
             <b><h1 style="font-size: 48px;font-weight:1000;color: #7868E6;">Jadwal Webinar</h1></b>
         </div>
-        <div class="row">
-                <div class="col-4 pb-3">
+        <div class="row justify-content-center">
+            @forelse ($webinar as $w )
+            <div class="col-4 pb-3">
+                <a href="{{route('webinar.detail',$w->id)}}" style="text-decoration: none">
                     <div class="card rounded-lg overflow-hidden" >
-                        <img src="{{asset('img/banner.svg')}}" class="card-img-top" alt="...">
+                        <img src="{{asset('storage'.$w->thumbnail)}}" class="card-img-top" alt="..." style="height: 200px;object-fit:cover;">
                         <div class="card-body">
-                            <p>tanggal</p>
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p>{{Carbon\Carbon::parse($w->jadwal)->format('l, d F Y, H:m A');}}</p>
+                            <b><h5 class="card-title">{{$w->judul}}</h5></b>
+                            <p class="card-text">{{Str::limit($w->deskripsi, 10)}}</p>
+                            
                         </div>
                     </div>
-                </div>
-                <div class="col-4 pb-3">
-                    <div class="card rounded-lg overflow-hidden" >
-                        <img src="{{asset('img/banner.svg')}}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p>tanggal</p>
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 pb-3">
-                    <div class="card rounded-lg overflow-hidden" >
-                        <img src="{{asset('img/banner.svg')}}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p>tanggal</p>
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 pb-3">
-                    <div class="card rounded-lg overflow-hidden" >
-                        <img src="{{asset('img/banner.svg')}}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p>tanggal</p>
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 pb-3">
-                    <div class="card rounded-lg overflow-hidden" >
-                        <img src="{{asset('img/banner.svg')}}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p>tanggal</p>
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 pb-3">
-                    <div class="card rounded-lg overflow-hidden" >
-                        <img src="{{asset('img/banner.svg')}}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p>tanggal</p>
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
+                </a>
+            </div>
+            @empty
+            <div class="mx-auto">
+                <h1 class="text-secondary py-3 font-weight-bold text-center">Data tidak ditemukan</h1>
+            </div>
+
+            @endforelse
+                
+                
         </div>
         <div class="row text-center">
             <a href="{{route('webinar')}}" class="text-capitalize" style="text-decoration: none; color: #7868E6;">Lihat lebih banyak >></a>
@@ -174,35 +130,26 @@
             <b><h1 style="font-size: 48px;font-weight:1000;color: #7868E6;">Para Narasumber</h1></b>
         </div>
         <div class="row scrollNar" style="margin-top:100px">
-            <div class="col-4">
-                <div class="d-block">
-                    <img src="{{asset('img/banner.svg')}}" style="object-fit: cover" width="200px" height="200px" alt="" class=" rounded-circle">
-                    <h3>Syarif</h3>
-                    <p class="text-secondary"></p>
+            <div class="owl-carousel owl-theme mt-4 loop">
+                @forelse ($narasumber as $nara)
+                <div class="item">
+                    <div class="col m-0" >
+                        <div class="my-auto">
+                            <img src="{{asset('storage'.$nara->image)}}" style="width:200px;object-fit: cover;margin-left:auto;margin-right:auto;" width="200px" height="200px" alt="" class=" rounded-circle">
+                        
+                        </div>                        
+                    </div>
+                    <h3 class="text-center" >{{$nara->name}}</h3>
+                    <p class="text-center">{{$nara->institusi}}</p>
+                    <p class="text-center text-secondary text-italic">{{$nara->motivation}}</p>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="d-block">
-                    <img src="{{asset('img/banner.svg')}}" style="object-fit: cover" width="200px" height="200px" alt="" class=" rounded-circle">
-                    <h3>Syarif</h3>
-                    <p class="text-secondary"></p>
+                @empty
+                <div class="mx-auto">
+                    <h1 class="text-secondary py-3 font-weight-bold text-center">Data tidak ditemukan</h1>
                 </div>
+                @endforelse
+                
             </div>
-            <div class="col-4">
-                <div class="d-block">
-                    <img src="{{asset('img/banner.svg')}}" style="object-fit: cover" width="200px" height="200px" alt="" class=" rounded-circle">
-                    <h3>Syarif</h3>
-                    <p class="text-secondary"></p>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="d-block">
-                    <img src="{{asset('img/banner.svg')}}" style="object-fit: cover" width="200px" height="200px" alt="" class=" rounded-circle">
-                    <h3>Syarif</h3>
-                    <p class="text-secondary"></p>
-                </div>
-            </div>
-            
         </div>
     </div>
 </section>

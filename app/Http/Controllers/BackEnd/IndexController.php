@@ -20,17 +20,17 @@ class IndexController extends Controller
         $pengunjung = Pengunjung::get()->first();
         return view('back-end.index',compact('admin','peserta','narasumber','sertif','webinar','pengunjung'));
     }
-    public function user(){
-        return view('back-end.user.index');
-    }
-    public function narasumber(){
-        return view('back-end.narasumber.index');
-    }
-    public function sertificate(){
-        return view('back-end.sertif.index');
-    }
-    public function report(){
-        return view('back-end.report.index');
-    }
+    // public function user(){
+    //     return view('back-end.user.index');
+    // }
+    // public function narasumber(){
+    //     return view('back-end.narasumber.index');
+    // }
+    // public function sertificate(){
+    //     return view('back-end.sertif.index');
+    // }
+    // public function report(){
+    //     return view('back-end.report.index');
+    // }
     
 }

@@ -68,6 +68,7 @@ class ManageNarasumberController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'image' => 'required',
             'name' => 'required',
             'institusi' => 'required',
             'motivation' => 'required',
@@ -75,8 +76,9 @@ class ManageNarasumberController extends Controller
         ]);
     
         $input = $request->all();
-        
-    
+        $image = $request->file('image');
+        $image->storeAs('public/image/', 'narasumber-'.$image->hashName());
+        $input['image'] = '/image/narasumber-'.$image->hashName();
         $narasumber = Narasumber::create($input);
         
     
@@ -105,7 +107,7 @@ class ManageNarasumberController extends Controller
     public function edit($id)
     {
         $narasumber = Narasumber::find($id);
-        return view('back-end.narasumber.edit',compact('User','roles','userRole'));
+        return view('back-end.narasumber.edit',compact('narasumber'));
     }
     
     /**
@@ -118,6 +120,7 @@ class ManageNarasumberController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'image' => 'required',
             'name' => 'required',
             'institusi' => 'required',
             'motivasi' => 'required',
@@ -125,8 +128,9 @@ class ManageNarasumberController extends Controller
         ]);
     
         $input = $request->all();
-        
-    
+        $image = $request->file('image');
+        $image->storeAs('public/image/', 'narasumber-'.$image->hashName());
+        $input['image'] = '/image/narasumber-'.$image->hashName();
         $narasumber = Narasumber::find($id);
         $narasumber->update($input);
         

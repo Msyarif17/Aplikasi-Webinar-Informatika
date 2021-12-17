@@ -97,7 +97,7 @@ class ManageModeratorController extends Controller
     public function edit($id)
     {
         $moderator = Moderator::find($id);
-        return view('back-end.moderator.edit',compact('User','roles','userRole'));
+        return view('back-end.moderator.edit',compact('moderator'));
     }
     
     /**

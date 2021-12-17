@@ -35,7 +35,6 @@
 							
 							<i class="fa fa-video logo-dashboard" aria-hidden="true"></i>
 						</div>
-
 					</div>
 				</div>
 			</a>

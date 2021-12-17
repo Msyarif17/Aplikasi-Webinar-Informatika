@@ -18,6 +18,7 @@ class CreateNarasumbersTable extends Migration
             $table->string('name');
             $table->string('institusi');
             $table->string('motivation');
+            $table->string('image');
             $table->timestamps();
             $table->softDeletes();
         });

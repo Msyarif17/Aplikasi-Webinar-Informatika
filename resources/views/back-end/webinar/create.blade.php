@@ -8,7 +8,7 @@
             <div class="col-12">
                 <div class="card mt-4">
                     <div class="card-header">
-                        <h3 class="card-title">Tambah Kategori Pekerjaan</h3>
+                        <h3 class="card-title">Tambah Webinar</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">

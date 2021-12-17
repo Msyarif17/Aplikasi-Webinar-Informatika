@@ -10,6 +10,13 @@
         </div>
         <div class="col-sm-12 col-md-12">
             <div class="form-group">
+                {!! Form::label('jadwal', 'Tanggal Jadwal') !!}
+                {!! Form::text('jadwal',@$webinar->jadwal ,$errors->has('jadwal') ? ['class'=>'form-control is-invalid ddatepicker'] : ['class'=>'form-control datepicker']) !!}
+                {!! $errors->first('jadwal', '<p class="help-block invalid-feedback">:message</p>') !!}
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12">
+            <div class="form-group">
                 {!! Form::label('judul', 'Judul Webinar') !!}
                 {!! Form::text('judul', @$webinar->judul, $errors->has('judul') ? ['class' => 'form-control is-invalid'] : ['class' => 'form-control']) !!}
                 {!! $errors->first('judul', '<p class="help-block invalid-feedback">:message</p>') !!}
@@ -36,14 +43,7 @@
                 {!! $errors->first('deskripsi', '<p class="help-block invalid-feedback">:message</p>') !!} 
             </div>
         </div>
-        <div class="col-sm-12 col-md-12">
-            <div class="form-group">
-                {!! Form::label('jadwal', 'Tanggal Jadwal') !!}
-                
-                {!! Form::text('jadwal',@$webinar->jadwal ,$errors->has('jadwal') ? ['class'=>'form-control is-invalid ddatepicker'] : ['class'=>'form-control datepicker']) !!}
-                {!! $errors->first('jadwal', '<p class="help-block invalid-feedback">:message</p>') !!}
-            </div>
-        </div>
+        
         
         
     </div>
@@ -55,8 +55,5 @@
 </div>
 @section('plugins.richText', true)
 @push('js')
-    <script>
-       
-        $('.rich-editor').richText();
-    </script>
+    
 @endpush

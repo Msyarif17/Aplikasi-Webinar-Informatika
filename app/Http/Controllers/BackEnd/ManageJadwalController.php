@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\BackEnd;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Jadwal;
+use App\Models\Moderator;
+use App\Models\Narasumber;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\ZoomOauthController;
-use App\Models\Moderator;
-use App\Models\Narasumber;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\ZoomOauthController;
 
 class ManageJadwalController extends Controller
 {
@@ -27,7 +28,7 @@ class ManageJadwalController extends Controller
                     return $Jadwal->narasumber->name;
                 })
                 ->addColumn('jadwal', function (Jadwal $Jadwal) {
-                    return $Jadwal->jadwal;
+                    return Carbon::parse($Jadwal->jadwal)->format('l, d F Y, H:m A');
                 })
                 ->addColumn('action', function (Jadwal $Jadwal) {
                     return \view('back-end.webinar.button_action', compact('Jadwal'));

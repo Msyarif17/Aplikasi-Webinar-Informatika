@@ -23,7 +23,7 @@ class ManagePesertaController extends Controller
     public function index(Datatables $datatables, Request $request)
     {
         if ($request->ajax()) {
-            return $datatables->of(User::query()->role('Peserta'))
+            return $datatables->of(User::query()->role('Peserta')->latest())
                 ->addColumn('name', function (User $User) {
                     return $User->name;
                 })
@@ -114,11 +114,8 @@ class ManagePesertaController extends Controller
      */
     public function edit($id)
     {
-        $User = User::find($id);
-        $roles = Role::pluck('name','name')->all();
-        $userRole = $User->roles->pluck('name','name')->all();
-    
-        return view('back-end.peserta.edit',compact('User','roles','userRole'));
+        $User = User::find($id);    
+        return view('back-end.peserta.edit',compact('User'));
     }
     
     /**

@@ -2,6 +2,14 @@
     <div class="row">
         <div class="col-sm-12 col-md-12">
             <div class="form-group">
+                {!! Form::label('image', 'Foto Narasumber') !!}
+                {!! Form::file('image', $errors->has('image') ? ['class'=>'form-control is-invalid','accept'=>"image/*"] : ['class'=>'form-control','accept'=>"image/png, image/*"]) !!}
+                {!! $errors->first('image', '<p class="help-block invalid-feedback">:message</p>') !!}
+                
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12">
+            <div class="form-group">
                 {!! Form::label('name', 'Nama Narasumber') !!}
                 {!! Form::text('name', @$narasumber->name, $errors->has('name') ? ['class' => 'form-control is-invalid'] : ['class' => 'form-control']) !!}
                 {!! $errors->first('name', '<p class="help-block invalid-feedback">:message</p>') !!}

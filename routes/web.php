@@ -19,8 +19,7 @@ Route::get('/', [App\Http\Controllers\FrontEnd\IndexController::class, 'index'])
 Route::get('/webinar-if', [App\Http\Controllers\FrontEnd\IndexController::class, 'webinar'])->name('webinar');
 
 
-
-Route::get('/cek/{token}',[App\Http\Controllers\FrontEnd\IndexController::class, 'cek'])->name('cek');
+Route::post('/cek/{token}',[App\Http\Controllers\FrontEnd\IndexController::class, 'cek'])->name('cek');
 Auth::routes();
 Route::middleware(['auth'])->group(function (){
     Route::get('/webinar-if/{id}', [App\Http\Controllers\FrontEnd\IndexController::class, 'detail'])->name('webinar.detail');
@@ -46,6 +45,7 @@ Route::middleware(['auth','role:Admin'])->prefix('admin')->name('admin.')->group
     
     Route::resource('manage-sertificate', App\Http\Controllers\BackEnd\ManageSertificateController::class);
 
+    Route::resource('manage-laporan', App\Http\Controllers\BackEnd\ManageLaporanController::class);
 
     Route::prefix('/manage-report')->group(function () {
         Route::get('/', [App\Http\Controllers\BackEnd\IndexController::class, 'report']);
