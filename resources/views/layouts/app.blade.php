@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
+    <meta name="{{ config('app.name', 'Laravel') }}" content="339282754553-c6nqi3n5eoleuagffpujvb5b39p6p3im.apps.googleusercontent.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
@@ -31,74 +32,19 @@
             @yield('content')
         </main>
     </div>
-    
-    <script src="{{asset('owl.carousel/owl.carousel.min.js')}}"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <script>
-        $(document).ready(function() {
-        $('[data-toggle="popover"]').popover()
-
-        var fixHeight = function() {
-            $('.navbar-nav').css(
-                'max-height',
-                document.documentElement.clientHeight - 150
-            );
-        };
-        fixHeight();
-        $(window).resize(function() {
-            fixHeight();
+        function renderButton() {
+        gapi.signin2.render('my-signin2', {
+            'scope': 'profile email',
+            'width': 240,
+            'height': 50,
+            'longtitle': true,
+            'theme': 'dark',
+            'onsuccess': onSuccess,
+            'onfailure': onFailure
         });
-        $('.navbar .navbar-toggler').on('click', function() {
-            fixHeight();
-        });
-        $('.navbar-toggler, .overlay').on('click', function() {
-            $('.mobileMenu, .overlay').toggleClass('open');
-        });
-
-        $(".filter-button").click(function(){
-            var value = $(this).attr('data-filter');
-
-            if(value == "all")
-            {
-                //$('.filter').removeClass('hidden');
-                $('.filter').show('1000');
-            }
-            else
-            {
-                //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
-                //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-                $(".filter").not('.'+value).hide('3000');
-                $('.filter').filter('.'+value).show('3000');
-
-            }
-        });
-
-        if ($(".filter-button").removeClass("active")) {
-            $(this).removeClass("active");
         }
-        $(this).addClass("active");
-
-        $('.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 1,
-            responsiveClass: true,
-            responsive: {
-                0: {
-                    items: 1,
-                    nav: true
-                },
-                600: {
-                    items: 1,
-                    nav: false
-                },
-                1000: {
-                    items: 3,
-                    nav: true,
-                    loop: false,
-                    margin: 20
-                }
-            }
-        })
-    });
     </script>
 </body>
 </html>
