@@ -69,10 +69,9 @@
                         </div>
                     </a>
                 </div>
-                @if ($latest[1])
-                    
-                @endif
+                
                 <div class="col-4 pl-0">
+                    @if ($latest[1])
                     <div class="col-12 mb-3 pr-0">
                         <a href="{{route('webinar.detail',$latest[1]->id)}}">
                             <div class="card rounded-lg overflow-hidden" >
@@ -86,6 +85,8 @@
                             </div>
                         </a>
                     </div>
+                    @endif
+                    @if ($latest[2])
                     <div class="col-12 mt-3 pr-0">
                         <a href="{{route('webinar.detail',$latest[2]->id)}}">
                             <div class="card rounded-lg overflow-hidden" >
@@ -99,6 +100,8 @@
                             </div>
                         </a>
                     </div>
+                    @endif
+                    
                 </div>
         </div>
     </div>
