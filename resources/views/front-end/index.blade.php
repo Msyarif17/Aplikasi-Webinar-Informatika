@@ -21,8 +21,12 @@
 </style>
 @stop
 @section('content')
+<div class="alert alert-info" role="alert" style="margin-top:100px;">
+    <marquee direction="left" ><b>Mohon Maaf , Karena Keterbatasan biaya maka image yang sudah diupload tidak akan mucul.</b></marquee>
+</div>
 
-<section class="jumbotron p-0 mb-0 m" style="background-color: #7868E6;height: 700px; margin-top:60px; background-image:url('{{asset('storage'.$latest[0]->thumbnail)}}') ; background-size: cover;background-repeat: no-repeat;background-position:top; ">
+<section class="jumbotron p-0 mb-0 m" style="background-color: #7868E6;height: 700px;  background-image:url('{{asset('storage'.$latest[0]->thumbnail)}}') ; background-size: cover;background-repeat: no-repeat;background-position:top; ">
+    
     <div class="py-0 h-100" style="backdrop-filter:  contrast(0.8) blur(5px);">
         <div class="container d-flex py-0 h-100" style="backdrop-filter: blur(100px);">
             <div class="row justify-content-center align-self-center" >
