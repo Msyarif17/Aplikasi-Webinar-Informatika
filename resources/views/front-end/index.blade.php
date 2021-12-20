@@ -22,25 +22,27 @@
 @stop
 @section('content')
 
-<section class="jumbotron py-0 mb-0 m" style="background-color: #7868E6;height: 700px; margin-top:60px; background-image:url('/img/banner.svg') ; background-size: cover;background-repeat: no-repeat;background-position:top;">
-    <div class="container d-flex py-0 h-100">
-        <div class="row justify-content-center align-self-center" >
-            <div class="row m-0 p-0 ">
-                <div class="col-12" style="color: white;font-size:48px;">
-                    <b><h1 style="font-size: 70px;font-weight:1000">Webinar</h1></b>
-                    <b><h1 style="font-size: 70px;font-weight:1000">Teknik Informatika</h1></b>
+<section class="jumbotron p-0 mb-0 m" style="background-color: #7868E6;height: 700px; margin-top:60px; background-image:url('{{asset('storage'.$latest[0]->thumbnail)}}') ; background-size: cover;background-repeat: no-repeat;background-position:top; ">
+    <div class="py-0 h-100" style="backdrop-filter:  contrast(0.8) blur(5px);">
+        <div class="container d-flex py-0 h-100" style="backdrop-filter: blur(100px);">
+            <div class="row justify-content-center align-self-center" >
+                <div class="row m-0 p-0 ">
+                    <div class="col-12" style="color: white;font-size:48px;">
+                        <b><h1 style="font-size: 70px;font-weight:1000">Webinar</h1></b>
+                        <b><h1 style="font-size: 70px;font-weight:1000">Teknik Informatika</h1></b>
+                    </div>
                 </div>
-            </div>
-            <div class="row m-0 p-0">
-                <div class="col-12" style="color: white;">
-                    <p style="font-size: 28px;font-weight:1000">Tempat anda mencari informasi seputar Webinar</p>
+                <div class="row m-0 p-0">
+                    <div class="col-12" style="color: white;">
+                        <p style="font-size: 28px;font-weight:1000">Tempat anda mencari informasi seputar Webinar</p>
+                    </div>
                 </div>
-            </div>
-            <div class="row m-0 p-0">
-                <div class="col-12">
-                    <a href="{{route('webinar')}}"><button class="btn btn-primary">
-                        <p class="p-0 m-0" style="font-weight:1000">Daftar Sekarang!</p>
-                    </button></a>
+                <div class="row m-0 p-0">
+                    <div class="col-12">
+                        <a href="{{route('webinar')}}"><button class="btn btn-primary">
+                            <p class="p-0 m-0" style="font-weight:1000">Daftar Sekarang!</p>
+                        </button></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -55,37 +57,47 @@
         <div class="row">
             
                 <div class="col-8">
-                    <a href="{{route('webinar.detail',$latest[0]->id)}}"></a>
-                    <div class="card rounded-lg overflow-hidden" >
-                        <img src="{{asset('img/banner.svg')}}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p>tanggal</p>
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            
+                    <a href="{{route('webinar.detail',$latest[0]->id)}}">
+                        <div class="card rounded-lg overflow-hidden" >
+                            <img src="{{asset('storage'.$latest[0]->thumbnail)}}" class="card-img-top" alt="..." style="height: 546px;object-fit:cover;">
+                            <div class="card-body">
+                                <p>{{Carbon\Carbon::parse($latest[0]->jadwal)->format('l, d F Y, H:m A');}}</p>
+                                <b><h5 class="card-title">{{$latest[0]->judul}}</h5></b>
+                                <p class="card-text">{{Str::limit($latest[0]->deskripsi, 10)}}</p>
+                                
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
+                @if ($latest[1])
+                    
+                @endif
                 <div class="col-4 pl-0">
                     <div class="col-12 mb-3 pr-0">
-                        <div class="card rounded-lg overflow-hidden" >
-                            <img src="{{asset('img/banner.svg')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p>tanggal</p>
-                                <h5 class="card-title">Card title</h5>
-                              
+                        <a href="{{route('webinar.detail',$latest[1]->id)}}">
+                            <div class="card rounded-lg overflow-hidden" >
+                                <img src="{{asset('storage'.$latest[1]->thumbnail)}}" class="card-img-top" alt="..." style="height: 200px;object-fit:cover;">
+                                <div class="card-body">
+                                    <p>{{Carbon\Carbon::parse($latest[1]->jadwal)->format('l, d F Y, H:m A');}}</p>
+                                    <b><h5 class="card-title">{{$latest[1]->judul}}</h5></b>
+                                    <p class="card-text">{{Str::limit($latest[1]->deskripsi, 10)}}</p>
+                                    
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-12 mt-3 pr-0">
-                        <div class="card rounded-lg overflow-hidden" >
-                            <img src="{{asset('img/banner.svg')}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p>tanggal</p>
-                                <h5 class="card-title">Card title</h5>
-                              
+                        <a href="{{route('webinar.detail',$latest[2]->id)}}">
+                            <div class="card rounded-lg overflow-hidden" >
+                                <img src="{{asset('storage'.$latest[2]->thumbnail)}}" class="card-img-top" alt="..." style="height: 200px;object-fit:cover;">
+                                <div class="card-body">
+                                    <p>{{Carbon\Carbon::parse($latest[2]->jadwal)->format('l, d F Y, H:m A');}}</p>
+                                    <b><h5 class="card-title">{{$latest[2]->judul}}</h5></b>
+                                    <p class="card-text">{{Str::limit($latest[2]->deskripsi, 10)}}</p>
+                                    
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
         </div>
