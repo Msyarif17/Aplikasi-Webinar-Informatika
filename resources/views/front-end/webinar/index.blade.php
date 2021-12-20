@@ -16,7 +16,7 @@
             </div>
             <div class="row m-0 p-0">
                 <div class="col-12">
-                    <a href=""><button class="btn btn-primary">
+                    <a href="{{route('webinar')}}"><button class="btn btn-primary">
                         <p class="p-0 m-0" style="font-weight:1000">Daftar Sekarang!</p>
                     </button></a>
                 </div>

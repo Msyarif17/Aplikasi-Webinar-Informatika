@@ -27,9 +27,10 @@ class IndexController extends Controller
             Pengunjung::create($view);
         }
         $narasumber = Narasumber::all();
+        $latest = Jadwal::latest()->take(3)->get();
         $webinar = Jadwal::latest()->take(6)->get();
         
-        return view('front-end.index',compact('webinar','narasumber'));
+        return view('front-end.index',compact('latest','webinar','narasumber'));
     }
     public function webinar(){
         $webinar = Jadwal::latest()->paginate(6);

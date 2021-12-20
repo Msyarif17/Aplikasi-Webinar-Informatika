@@ -38,7 +38,7 @@
             </div>
             <div class="row m-0 p-0">
                 <div class="col-12">
-                    <a href=""><button class="btn btn-primary">
+                    <a href="{{route('webinar')}}"><button class="btn btn-primary">
                         <p class="p-0 m-0" style="font-weight:1000">Daftar Sekarang!</p>
                     </button></a>
                 </div>
@@ -55,13 +55,14 @@
         <div class="row">
             
                 <div class="col-8">
+                    <a href="{{route('webinar.detail',$latest[0]->id)}}"></a>
                     <div class="card rounded-lg overflow-hidden" >
                         <img src="{{asset('img/banner.svg')}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <p>tanggal</p>
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            
                         </div>
                     </div>
                 </div>
