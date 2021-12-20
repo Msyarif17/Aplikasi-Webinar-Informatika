@@ -24,10 +24,11 @@ class AbsensiController extends Controller
                 'user_id'   => Auth::user()->id,
                 'token'     => $request->token,
             ];
-            Absen::create($absen);
+           
             $webinar = Jadwal::where('id',$id)->first();
             $mailSertif = new WebinarMailController;
-            $mailSertif->sendMailSertif(Auth::user(),$webinar,$request->token);
+            $mailSertif->sendMailSertif(Auth::user(),$webinar,$request->token); 
+            Absen::create($absen);
             return redirect()->route('index');
         }
         else{

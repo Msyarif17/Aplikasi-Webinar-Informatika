@@ -76,9 +76,8 @@ class ManageNarasumberController extends Controller
         ]);
     
         $input = $request->all();
-        $image = $request->file('image');
-        $image->storeAs('public/image/', 'narasumber-'.$image->hashName());
-        $input['image'] = '/image/narasumber-'.$image->hashName();
+        
+        $input['image'] = base64_encode(file_get_contents($request->file('image')->pat‌​h()));
         $narasumber = Narasumber::create($input);
         
     

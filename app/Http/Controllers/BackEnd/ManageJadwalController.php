@@ -64,8 +64,7 @@ class ManageJadwalController extends Controller
         ]);
         $input = $request->all();
         $image = $request->file('thumbnail');
-        $image->storeAs('public/image/', 'thumbnail-'.$image->hashName());
-        $input['thumbnail'] = '/image/thumbnail-'.$image->hashName();
+        $input['thumbnail'] = base64_encode(file_get_contents($request->file('thumbnail')));
         $generateLinkZoom = new ZoomOauthController;
         $input['link'] = $generateLinkZoom->generateLinkZoom($request->judul,$input['jadwal']);
         $input['narasumber_id'] = implode("",$request->narasumber_id);
@@ -95,8 +94,8 @@ class ManageJadwalController extends Controller
         ]);
         $input = $request->all();
         $image = $request->file('thumbnail');
-        $image->storeAs('public/image/', 'thumbnail-'.$image->hashName());
-        $input['thumbnail'] = '/image/thumbnail-'.$image->hashName();
+        
+        $input['thumbnail'] = base64_encode(file_get_contents($request->file('thumbnail')));
         
         $input['narasumber_id'] = implode("",$request->narasumber_id);
         $input['moderator_id'] = implode("",$request->moderator_id);
